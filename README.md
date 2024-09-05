@@ -27,7 +27,7 @@ This is a simple Banking Application developed in **Java** using **JDBC** for da
 - PostgreSQL installed and running.
 - JDBC Driver for PostgreSQL.
   
-## Data base ERD
+## DataBase ERD
 ![DB ERD](https://github.com/user-attachments/assets/ae9e150b-efa6-4b87-982b-c2443fcc9c1d)
 
 
