@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe808dac-da38-4216-92da-e142d01b6ad7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BankingApplication.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/BalanceEnquiry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/Conn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/Deposit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/FastCash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/InvalidAmountException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/MiniStatement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/PINChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/SignUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/SignUp2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/SignUp3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/Withdrawal.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2letxj4gBlXNLaMqpSu4mvDIxsn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Login.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/projects/BankingApplication/src/Jcalender/lib/junit-4.6.jar",
+    "onboarding.tips.debug.path": "D:/projects/BankingApplication/src/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\BankingApplication\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe808dac-da38-4216-92da-e142d01b6ad7" name="Changes" comment="" />
+      <created>1725552619608</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725552619608</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/bank/management/system/Main.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
