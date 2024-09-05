@@ -45,3 +45,7 @@ This is a simple Banking Application developed in **Java** using **JDBC** for da
 
 ![Screenshot_3](https://github.com/user-attachments/assets/6157eb15-c264-4e47-8c58-50cbfb9fdc4a)
 
+![Screenshot_8](https://github.com/user-attachments/assets/0a73dc45-25aa-409f-8cc8-1924b6f93453)
+
+![Screenshot_9](https://github.com/user-attachments/assets/5e590b0d-18c0-4fa0-bbca-0b2330bc8c11)
+
