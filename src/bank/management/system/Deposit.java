@@ -50,7 +50,7 @@ public class Deposit extends JFrame implements ActionListener {
         this.button2.addActionListener(this);
         this.add(this.button2);
         this.EXIT = new JButton("EXIT");
-        this.EXIT.setBounds(780, 634, 80, 25);
+        this.EXIT.setBounds(800, 15, 80, 25);
         this.EXIT.setBackground(new Color(180, 70, 80));
         this.EXIT.setForeground(Color.WHITE);
         this.EXIT.setFocusPainted(false);
@@ -75,7 +75,7 @@ public class Deposit extends JFrame implements ActionListener {
         if (e.getSource() == this.button2) {
             String amount = this.textField1.getText();
             Date datee = new Date();
-            String date = User.adjustDate(datee.toString());
+            String date = DateHandling.adjustDate(datee.toString());
             Conn con = new Conn();
 
             try {

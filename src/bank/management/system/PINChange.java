@@ -61,7 +61,7 @@ public class PINChange extends JFrame implements ActionListener {
         this.button2.addActionListener(this);
         this.add(this.button2);
         this.EXIT = new JButton("EXIT");
-        this.EXIT.setBounds(780, 634, 80, 25);
+        this.EXIT.setBounds(800, 15, 80, 25);
         this.EXIT.setBackground(new Color(180, 70, 80));
         this.setUndecorated(true);
         this.EXIT.setForeground(Color.WHITE);

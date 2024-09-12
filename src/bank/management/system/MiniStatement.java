@@ -93,7 +93,7 @@ public class MiniStatement extends JFrame implements ActionListener {
         this.button7.addActionListener(this);
         this.add(this.button7);
         this.EXIT = new JButton("EXIT");
-        this.EXIT.setBounds(780, 634, 80, 25);
+        this.EXIT.setBounds(800, 15, 80, 25);
         this.setUndecorated(true);
         this.EXIT.setBackground(new Color(180, 70, 80));
         this.EXIT.setForeground(Color.WHITE);

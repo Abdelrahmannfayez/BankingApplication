@@ -11,14 +11,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class SignUp2 extends JFrame implements ActionListener {
     JLabel label1 = new JLabel("Religion: ");
@@ -37,6 +30,7 @@ public class SignUp2 extends JFrame implements ActionListener {
     JButton button1;
     JButton EXIT;
     User temp;
+    ButtonGroup accStatusGroup;
 
     SignUp2(User x) {
         this.label1.setFont(new Font("Arial", 1, 28));
@@ -82,33 +76,26 @@ public class SignUp2 extends JFrame implements ActionListener {
         this.c4.setForeground(Color.BLACK);
         this.c4.setBounds(260, 355, 250, 30);
         this.add(this.c4);
-        this.label6 = new JLabel("PAN number: ");
-        this.label6.setFont(new Font("Arial", 1, 28));
-        this.label6.setForeground(Color.WHITE);
-        this.label6.setBounds(30, 400, 250, 40);
-        this.add(this.label6);
-        this.textField1 = new JTextField();
-        this.textField1.setFont(new Font("Raleway", 1, 18));
-        this.textField1.setBounds(260, 405, 250, 30);
-        this.add(this.textField1);
         this.label7 = new JLabel("Existing Account: ");
         this.label7.setFont(new Font("Arial", 1, 28));
         this.label7.setForeground(Color.WHITE);
-        this.label7.setBounds(30, 450, 250, 40);
+        this.label7.setBounds(30, 400, 250, 40);
         this.add(this.label7);
         this.m1 = new JRadioButton("Yes");
         this.m1.setFont(new Font("Raleway", 1, 18));
         this.m1.setOpaque(false);
-        this.m1.setBounds(300, 455, 150, 30);
+        this.m1.setBounds(300, 405, 150, 30);
+        m1.setActionCommand("Yes");
         this.add(this.m1);
         this.m2 = new JRadioButton("NO");
         this.m2.setFont(new Font("Raleway", 1, 18));
         this.m2.setOpaque(false);
-        this.m2.setBounds(450, 455, 150, 30);
+        this.m2.setBounds(450, 405, 150, 30);
+        m2.setActionCommand("No");
         this.add(this.m2);
-        ButtonGroup statusGroup = new ButtonGroup();
-        statusGroup.add(this.m1);
-        statusGroup.add(this.m2);
+        accStatusGroup = new ButtonGroup();
+        accStatusGroup.add(this.m1);
+        accStatusGroup.add(this.m2);
         this.button1 = new JButton("Next");
         this.button1.setBackground(new Color(59, 89, 182));
         this.button1.setForeground(Color.WHITE);
@@ -119,7 +106,7 @@ public class SignUp2 extends JFrame implements ActionListener {
         this.add(this.button1);
         this.temp = new User(x);
         this.EXIT = new JButton("EXIT");
-        this.EXIT.setBounds(780, 634, 80, 25);
+        this.EXIT.setBounds(800, 15, 80, 25);
         this.setUndecorated(true);
         this.EXIT.setBackground(new Color(180, 70, 80));
         this.EXIT.setForeground(Color.WHITE);
@@ -136,23 +123,43 @@ public class SignUp2 extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(3);
         this.setResizable(false);
         this.setSize(900, 700);
-        this.setLocationRelativeTo((Component)null);
+        this.setLocationRelativeTo((Component) null);
         this.setVisible(true);
     }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.button1) {
-            String religion = (String)this.c1.getSelectedItem();
-            String income = (String)this.c2.getSelectedItem();
-            String eduacation = (String)this.c3.getSelectedItem();
-            String occupation = (String)this.c4.getSelectedItem();
-            String pan = this.textField1.getText();
-            String existing_account = this.m1.isSelected() ? "Yes" : "NO";
+            String religion = (String) this.c1.getSelectedItem();
+            String income = (String) this.c2.getSelectedItem();
+            String eduacation = (String) this.c3.getSelectedItem();
+            String occupation = (String) this.c4.getSelectedItem();
+            ButtonModel selectedModel = accStatusGroup.getSelection();
+            String existing_account="";
+            if(m1.isSelected())existing_account="Yes";
+            else if(m2.isSelected())existing_account="No";
+
+            //Data validation
+            try {
+
+                DataValidation.validateReligion(religion);
+                DataValidation.validateIncome(income);
+                DataValidation.validateEducation(eduacation);
+                DataValidation.validateOccupation(occupation);
+                DataValidation.validateExistigAccount(existing_account);
+
+
+            } catch (InvalidDataException E) {
+                JOptionPane.showMessageDialog(null, E.getMessage());
+                return;
+            }
+
+
             this.temp.setReligion(religion);
             this.temp.setIncome(income);
             this.temp.setEducation(eduacation);
             this.temp.setOccupation(occupation);
-            this.temp.setPan(pan);
+
+
             this.temp.setExisting_account(existing_account);
             new SignUp3(this.temp);
             this.setVisible(false);

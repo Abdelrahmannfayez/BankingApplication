@@ -12,13 +12,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class SignUp extends JFrame implements ActionListener {
     JLabel label1 = new JLabel("Name: ");
@@ -158,7 +152,7 @@ public class SignUp extends JFrame implements ActionListener {
         this.button1.addActionListener(this);
         this.add(this.button1);
         this.EXIT = new JButton("EXIT");
-        this.EXIT.setBounds(780, 634, 80, 25);
+        this.EXIT.setBounds(800, 15, 80, 25);
         this.EXIT.setBackground(new Color(180, 70, 80));
         this.EXIT.setForeground(Color.WHITE);
         this.setUndecorated(true);
@@ -190,6 +184,21 @@ public class SignUp extends JFrame implements ActionListener {
             String address = this.textField7.getText();
             String city = this.textField8.getText();
             String Nat_id = this.textField10.getText();
+            try{
+                DataValidation.validateNames(name);
+                DataValidation.validateNames(lastname);
+                DataValidation.validateNationalId(Nat_id);
+                DataValidation.validateGender(gender);
+                DataValidation.validateBirthDate(dateOfBirth);
+                DataValidation.validateEmail(email);
+                DataValidation.validateStatus(status);
+                DataValidation.validateAddress(address,city);
+            }
+            catch (InvalidDataException E)
+            {
+                JOptionPane.showMessageDialog(null,E.getMessage());
+                return;
+            }
             User temp = new User(name, lastname, dateOfBirth, address, city, status, gender, email, Nat_id);
             new SignUp2(temp);
             this.setVisible(false);

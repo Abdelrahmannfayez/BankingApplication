@@ -27,7 +27,7 @@ public class User {
     private String religion;
     private String education;
     private String occupation;
-    private String pan;
+
     private String existing_account;
     private String account_type;
     private String cardNo;
@@ -64,13 +64,7 @@ public class User {
         this.occupation = occupation;
     }
 
-    public String getPan() {
-        return this.pan;
-    }
 
-    public void setPan(String pan) {
-        this.pan = pan;
-    }
 
     public String getExisting_account() {
         return this.existing_account;
@@ -84,51 +78,17 @@ public class User {
     }
 
     public User(String firstname, String lastname, String birthdate, String address, String city, String status, String gender, String email, String nationalId) {
-        if (firstname != null && !firstname.isEmpty()) {
-            if (lastname != null && !lastname.isEmpty()) {
-                if (birthdate != null && !birthdate.isEmpty()) {
-                    if (address != null && !address.isEmpty()) {
-                        if (city != null && !city.isEmpty()) {
-                            if (status != null && !status.isEmpty()) {
-                                if (gender != null && !gender.isEmpty()) {
-                                    if (email != null && !email.isEmpty()) {
-                                        if (nationalId != null && !nationalId.isEmpty()) {
-                                            this.firstname = firstname;
-                                            this.lastname = lastname;
-                                            this.birthdate = birthdate;
-                                            this.address = address;
-                                            this.city = city;
-                                            this.status = status;
-                                            this.Gender = gender;
-                                            this.email = email;
-                                            this.nat_id = nationalId;
-                                        } else {
-                                            throw new IllegalArgumentException("please fill all fields");
-                                        }
-                                    } else {
-                                        throw new IllegalArgumentException("please fill all fields");
-                                    }
-                                } else {
-                                    throw new IllegalArgumentException("please fill all fields");
-                                }
-                            } else {
-                                throw new IllegalArgumentException("please fill all fields");
-                            }
-                        } else {
-                            throw new IllegalArgumentException("please fill all fields");
-                        }
-                    } else {
-                        throw new IllegalArgumentException("please fill all fields");
-                    }
-                } else {
-                    throw new IllegalArgumentException("please fill all fields");
-                }
-            } else {
-                throw new IllegalArgumentException("please fill all fields");
-            }
-        } else {
-            throw new IllegalArgumentException("please fill all fields");
-        }
+
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.birthdate = birthdate;
+        this.address = address;
+        this.city = city;
+        this.status = status;
+        this.Gender = gender;
+        this.email = email;
+        this.nat_id = nationalId;
+
     }
 
     public User(User other) {
@@ -137,6 +97,7 @@ public class User {
         } else {
             this.firstname = other.firstname;
             this.lastname = other.lastname;
+            this.cardNo = other.cardNo;
             this.birthdate = other.birthdate;
             this.address = other.address;
             this.city = other.city;
@@ -148,8 +109,11 @@ public class User {
             this.religion = other.religion;
             this.education = other.education;
             this.occupation = other.occupation;
-            this.pan = other.pan;
+
             this.existing_account = other.existing_account;
+            this.pincode = other.pincode;
+            this.account_type = other.account_type;
+
         }
     }
 
@@ -261,7 +225,7 @@ public class User {
         try {
             ResultSet rs = con.stmt.executeQuery(q);
 
-            while(rs.next()) {
+            while (rs.next()) {
                 int amount = Integer.parseInt(rs.getString("amount").strip());
                 if (rs.getString("type").equals("deposit")) {
                     x += amount;
@@ -272,7 +236,7 @@ public class User {
 
             return x;
         } catch (Exception var6) {
-            JOptionPane.showMessageDialog((Component)null, var6.getMessage());
+            JOptionPane.showMessageDialog((Component) null, var6.getMessage());
             System.out.println(var6.toString());
             return x;
         }
@@ -287,24 +251,19 @@ public class User {
         }
     }
 
-    public static String adjustDate(String date) {
-        String ret = "";
-        String[] arr = date.split(" ");
-        ret = arr[0] + " " + arr[1] + " " + arr[2] + " " + arr[5];
-        return ret;
-    }
+
 
     public static String generateUniquePin() {
         List<Integer> digits = new ArrayList();
 
-        for(int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; ++i) {
             digits.add(i);
         }
 
         Collections.shuffle(digits);
         StringBuilder pin = new StringBuilder();
 
-        for(int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i) {
             pin.append(digits.get(i));
         }
 

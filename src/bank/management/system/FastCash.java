@@ -96,7 +96,7 @@ public class FastCash extends JFrame implements ActionListener {
         this.button7.addActionListener(this);
         this.add(this.button7);
         this.EXIT = new JButton("EXIT");
-        this.EXIT.setBounds(780, 634, 80, 25);
+        this.EXIT.setBounds(800, 15, 80, 25);
         this.EXIT.setBackground(new Color(180, 70, 80));
         this.EXIT.setForeground(Color.WHITE);
         this.EXIT.setFocusPainted(false);
@@ -127,7 +127,7 @@ public class FastCash extends JFrame implements ActionListener {
             String strAmount = ((JButton)e.getSource()).getText().substring(0, indx);
             int amount = Integer.parseInt(strAmount.strip());
             Date datee = new Date();
-            String date = User.adjustDate(datee.toString());
+            String date = DateHandling.adjustDate(datee.toString());
             Conn con = new Conn();
 
             try {

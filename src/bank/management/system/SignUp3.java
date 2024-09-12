@@ -103,7 +103,7 @@ public class SignUp3 extends JFrame implements ActionListener {
         this.button1.addActionListener(this);
         this.add(this.button1);
         this.EXIT = new JButton("EXIT");
-        this.EXIT.setBounds(780, 634, 80, 25);
+        this.EXIT.setBounds(800, 15, 80, 25);
         this.setUndecorated(true);
         this.EXIT.setBackground(new Color(180, 70, 80));
         this.EXIT.setForeground(Color.WHITE);
@@ -142,6 +142,15 @@ public class SignUp3 extends JFrame implements ActionListener {
                 } else if (this.r2.isSelected()) {
                     account_type = "Recurring deposit account";
                 }
+                try{
+                    DataValidation.validateAccountType(account_type);
+                }
+                catch (InvalidDataException E)
+                {
+                    JOptionPane.showMessageDialog(null,E.getMessage());
+                    return;
+                }
+
 
                 this.temp.setAccount_type(account_type);
                 Random ran = new Random();
@@ -159,7 +168,7 @@ public class SignUp3 extends JFrame implements ActionListener {
                     String q = "INSERT INTO signup (first_name, last_name, birth_date, address, city, status, gender, email, national_id) VALUES ('" + var10000 + "', '" + this.temp.getLastname() + "', '" + this.temp.getBirthdate() + "', '" + this.temp.getAddress() + "', '" + this.temp.getCity() + "', '" + this.temp.getStatus() + "', '" + this.temp.getGender() + "', '" + this.temp.getEmail() + "', '" + this.temp.getNat_id() + "')";
                     con.stmt.executeUpdate(q);
                     var10000 = this.temp.getReligion();
-                    q = "INSERT INTO signup2 (religion, income, education, occupation, pan, existing_account, national_id) VALUES ('" + var10000 + "', '" + this.temp.getIncome() + "', '" + this.temp.getEducation() + "', '" + this.temp.getOccupation() + "', '" + this.temp.getPan() + "', '" + this.temp.getExisting_account() + "', '" + this.temp.getNat_id() + "')";
+                    q = "INSERT INTO signup2 (religion, income, education, occupation, existing_account, national_id) VALUES ('" + var10000 + "', '" + this.temp.getIncome() + "', '" + this.temp.getEducation() + "', '" + this.temp.getOccupation() +  "', '" + this.temp.getExisting_account() + "', '" + this.temp.getNat_id() + "')";
                     con.stmt.executeUpdate(q);
                     var10000 = this.temp.getAccount_type();
                     q = "INSERT INTO signup3 (atype, cardno, pin, national_id) VALUES ('" + var10000 + "', '" + this.temp.getCardNo() + "', '" + this.temp.getPincode() + "', '" + this.temp.getNat_id() + "')";
