@@ -79,9 +79,11 @@ public class Deposit extends JFrame implements ActionListener {
             Conn con = new Conn();
 
             try {
-                int process_amount = User.CheckIfValidAmount(amount);
+                //this variable is important to check if the amount is valid
+                int process_amount = UserServices.CheckIfValidAmount(amount);
+
                 String q = "INSERT INTO atm (national_id, date, amount, type) VALUES ('" + this.nat_id + "', '" + date + "', '" + amount.strip() + "', 'deposit')";
-                con.stmt.executeUpdate(q);
+                DatabaseQuerying.executeUpdate(q);
                 JOptionPane.showMessageDialog((Component)null, amount.strip() + " LE are deposited Successfully", "Successfully Deposited", -1);
                 this.setVisible(false);
                 new Main(this.nat_id);

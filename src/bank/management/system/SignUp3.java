@@ -89,7 +89,7 @@ public class SignUp3 extends JFrame implements ActionListener {
         this.label5.setOpaque(false);
         this.label5.setBounds(30, 410, 600, 28);
         this.add(this.label5);
-        this.c5 = new JCheckBox(" I confirm that the information is accurate");
+        this.c5 = new JCheckBox(" I confirm that all my personal details are accurate");
         this.c5.setFont(new Font("Arial", 1, 20));
         this.c5.setOpaque(false);
         this.c5.setBounds(30, 500, 600, 28);
@@ -157,7 +157,7 @@ public class SignUp3 extends JFrame implements ActionListener {
                 long N = ran.nextLong() % 90000000L + 1409963000000000L;
                 String cardNo = "" + N;
                 Long M = ran.nextLong() % 9000L + 1000L;
-                String pin = User.generateUniquePin();
+                String pin = UserServices.generateUniquePin();
                 this.temp.setPincode(pin);
                 this.temp.setCardNo(cardNo);
                 Conn con = new Conn();

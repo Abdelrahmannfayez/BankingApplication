@@ -131,8 +131,8 @@ public class FastCash extends JFrame implements ActionListener {
             Conn con = new Conn();
 
             try {
-                User Temp = new User();
-                Temp.setNat_id(this.nat_id);
+                UserServices Temp = new UserServices(nat_id);
+
                 int balance = Temp.CalcBalance();
                 if (balance < amount) {
                     throw new InvalidAmountException("Sorry, Insufficient Balance!");
@@ -140,7 +140,7 @@ public class FastCash extends JFrame implements ActionListener {
 
                 String q = "INSERT INTO atm (national_id, date, amount, type) VALUES ('" + this.nat_id + "', '" + date + "', '" + strAmount.strip() + "', 'withdrawal')";
                 con.stmt.executeUpdate(q);
-                JOptionPane.showMessageDialog((Component)null, "" + amount + " LE are withdraw Successfully \n your balance '" + Temp.CalcBalance() + "'", "Successfully Withdraw", -1);
+                JOptionPane.showMessageDialog((Component)null, "" + amount + " LE are withdrawn Successfully \n your balance '" + Temp.CalcBalance() + "'", "Successfully Withdraw", -1);
                 this.setVisible(false);
                 new Main(this.nat_id);
             } catch (InvalidAmountException var11) {

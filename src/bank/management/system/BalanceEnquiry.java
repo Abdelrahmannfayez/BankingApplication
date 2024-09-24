@@ -24,8 +24,7 @@ public class BalanceEnquiry extends JFrame implements ActionListener {
 
     BalanceEnquiry(String nat_id) {
         this.nat_id = nat_id;
-        User Temp = new User();
-        Temp.setNat_id(nat_id);
+        UserServices Temp = new UserServices(nat_id);
         int balance = Temp.CalcBalance();
         this.label1 = new JLabel("Your Current Balance in EGP: " + balance + " ");
         this.label1.setFont(new Font("Ralway", 1, 20));

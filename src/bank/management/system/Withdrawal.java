@@ -77,28 +77,26 @@ public class Withdrawal extends JFrame implements ActionListener {
             String amount = this.textField1.getText();
             Date datee = new Date();
             String date = DateHandling.adjustDate(datee.toString());
-            Conn con = new Conn();
+
 
             try {
-                int process_amount = User.CheckIfValidAmount(amount);
-                User Temp = new User();
-                Temp.setNat_id(this.nat_id);
+                int process_amount = UserServices.CheckIfValidAmount(amount);
+                UserServices Temp = new UserServices(nat_id);
                 int balance = Temp.CalcBalance();
                 if (balance < process_amount) {
                     throw new InvalidAmountException("Sorry, Insufficient Balance!");
                 }
 
                 String q = "INSERT INTO atm (national_id, date, amount, type) VALUES ('" + this.nat_id + "', '" + date + "', '" + amount.strip() + "', 'withdrawal')";
-                con.stmt.executeUpdate(q);
-                JOptionPane.showMessageDialog((Component)null, amount.strip() + " LE are withdraw Successfully \n your balance '" + Temp.CalcBalance() + "'", "Successfully Withdraw", -1);
+
+                DatabaseQuerying.executeUpdate(q);
+                JOptionPane.showMessageDialog((Component)null, amount.strip() + " LE are withdrawn Successfully \n your balance '" + Temp.CalcBalance() + "'", "Successfully Withdraw", -1);
                 this.setVisible(false);
                 new Main(this.nat_id);
             } catch (NumberFormatException var10) {
                 JOptionPane.showMessageDialog((Component)null, "Please enter a valid amount of money", "Invalid amount", 0);
             } catch (InvalidAmountException var11) {
                 JOptionPane.showMessageDialog((Component)null, var11.getMessage(), "Invalid amount", 0);
-            } catch (SQLException var12) {
-                JOptionPane.showMessageDialog((Component)null, var12.getMessage());
             }
         } else if (e.getSource() == this.button1) {
             this.setVisible(false);

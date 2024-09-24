@@ -33,14 +33,13 @@ public class MiniStatement extends JFrame implements ActionListener {
 
     MiniStatement(String nat_id) {
         this.nat_id = nat_id;
-        User Temp = new User();
-        Temp.setNat_id(nat_id);
+        UserServices Temp = new UserServices(nat_id);
         int balance = Temp.CalcBalance();
-        Conn con = new Conn();
-        String q1 = "Select * From signup Where national_id = '" + this.nat_id + "' ";
+
+        String q = "Select * From signup Where national_id = '" + this.nat_id + "' ";
 
         try {
-            for(ResultSet rs = con.stmt.executeQuery(q1); rs.next(); this.lastName = rs.getString("last_name")) {
+            for( ResultSet rs = DatabaseQuerying.retreiveData(q); rs.next(); this.lastName = rs.getString("last_name")) {
                 this.firstName = rs.getString("first_name");
             }
         } catch (Exception var16) {
@@ -49,11 +48,11 @@ public class MiniStatement extends JFrame implements ActionListener {
         }
 
         String[] columns = new String[]{"Date", "Type", "Amount"};
-        List<String[]> Data = new ArrayList();
-        String q = "Select * From atm Where national_id = '" + this.nat_id + "' ";
+        List<String[]> Data = new ArrayList<>();
+        String q2 = "Select * From atm Where national_id = '" + this.nat_id + "' ";
 
         try {
-            ResultSet rs = con.stmt.executeQuery(q);
+            ResultSet rs = DatabaseQuerying.retreiveData(q2);
 
             while(rs.next()) {
                 Data.add(new String[]{rs.getString("date"), rs.getString("type"), rs.getString("amount")});

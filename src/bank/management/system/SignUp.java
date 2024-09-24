@@ -48,7 +48,7 @@ public class SignUp extends JFrame implements ActionListener {
         this.textField1.setForeground(Color.BLACK);
         this.textField1.setBounds(260, 105, 250, 30);
         this.add(this.textField1);
-        this.label2 = new JLabel("Father's Name: ");
+        this.label2 = new JLabel("Last Name: ");
         this.label2.setFont(new Font("Arial", 1, 28));
         this.label2.setForeground(Color.WHITE);
         this.label2.setBounds(30, 150, 250, 40);
